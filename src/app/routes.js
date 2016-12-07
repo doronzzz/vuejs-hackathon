@@ -36,6 +36,18 @@ export default [
     },
   },
 
+  // FEED
+  {
+    path: '/feed',
+    name: 'feed.index',
+    component: require('pages/feed/index/index.vue'),
+
+    // If the user needs to be authenticated to view this page
+    meta: {
+      auth: true,
+    },
+  },
+
   // Login
   {
     path: '/login',
