@@ -29,6 +29,7 @@
             </a>
           </router-link>
         </ul>
+
         <ul class="nav navbar-nav">
           <router-link
             :to="{ name: 'account.index' }"
@@ -38,6 +39,18 @@
           >
             <a>
               Account
+            </a>
+          </router-link>
+        </ul>
+        <ul class="nav navbar-nav">
+          <router-link
+            :to="{ name: 'feed.index' }"
+            active-class="active"
+            class="nav-item"
+            tag="li"
+          >
+            <a>
+              Feed
             </a>
           </router-link>
         </ul>
