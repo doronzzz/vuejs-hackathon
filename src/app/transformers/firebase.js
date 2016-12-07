@@ -16,7 +16,8 @@ export default class fireBaseTransformer extends Transformer {
    * @returns {Object} The transformed account
    */
   static fetch(firebaseData) {
-    window.localStorage.set('firebaseData',JSON.strngify(firebaseData));
+    window.firebaseData = firebaseData;
+    //window.localStorage.setItem('firebaseData', JSON.stringify(firebaseData));
     return firebaseData;
   }
 

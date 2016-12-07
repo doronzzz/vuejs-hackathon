@@ -14,6 +14,7 @@
   import store from './store';
   import { router } from './../bootstrap';
   import accountService from './services/account';
+  import firebaseService from './services/firebase';
 
   export default {
     /**
@@ -34,6 +35,7 @@
       // fetch the data from the API
       if (this.$store.state.auth.authenticated) {
         accountService.find();
+        firebaseService.firebase();
       }
     },
   };

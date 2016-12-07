@@ -12,6 +12,12 @@ export const getAccount = ({ commit }, account) => {
   commit(types.GET_ACCOUNT, account);
 };
 
+// getFirebaseData
+export const getFireBaseData = ({ commit }, res) => {
+  commit(types.GET_FIREBASE_DATA, res);
+};
+
+
 // Auth
 export const login = ({ commit }, token) => {
   commit(types.LOGIN, token);

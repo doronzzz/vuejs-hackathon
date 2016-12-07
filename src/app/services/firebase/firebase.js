@@ -1,11 +1,10 @@
-import accountTransformer from './../../transformers/account';
+import fireBaseTransformer from './../../transformers/firebase';
 import store from './../../store';
 
 // When the request succeeds
-const success = (account) => {
-  account = accountTransformer.fetch(account);
-
-  store.dispatch('getAccount', account);
+const success = (res) => {
+  const firebaseData = fireBaseTransformer.fetch(res);
+  store.dispatch('getFireBaseData', firebaseData);
 };
 
 // When the request fails
@@ -13,15 +12,13 @@ const failed = () => {
 };
 
 export default () => {
-
-
-
-
   // Get a reference to the database service
-  var database = firebase.database();
-  firebase.database().ref('/stream').once('value')
-    .then(function(snapshot) {
-      console.log("once",snapshot.val());
-    });
-
+  const callback = (snapshot) => {
+    if (snapshot) {
+      success(snapshot.val());
+    } else {
+      failed();
+    }
+  };
+  window.firebase.database().ref('/stream').once('value').then(callback);
 };
